@@ -1,0 +1,60 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../features/authSlice";
+
+const Navbar = () => {
+  const user = useSelector((s) => s.auth.user)
+  const dp = useDispatch()
+
+  return (
+    <nav className='p-5 flex justify-between bg-purple-300'>
+      <h1 className="font-bold text-lg">BOOK STORE</h1>
+
+      <div className="flex gap-4 items-center">
+
+        {user ? (
+          <>
+            <Link
+              className="text-gray-700 font-semibold hover:text-blue-600"
+              to="/"
+            >
+              Home
+            </Link>
+ <Link
+              className="hover:text-gray-200"
+              to="/addbook"
+            >
+              Add Book
+            </Link>
+            <button
+              onClick={() => dp(logout())}
+              className="text-red-600 font-semibold"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="text-green-600 font-semibold"
+            >
+              Login
+            </Link>
+
+            <Link
+              to="/register"
+              className="text-blue-600 font-semibold"
+            >
+              Register
+            </Link>
+          </>
+        )}
+
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
