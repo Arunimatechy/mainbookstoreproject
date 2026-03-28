@@ -8,28 +8,38 @@ const Navbar = () => {
   const dp = useDispatch()
 
   return (
-    <nav className='p-5 flex justify-between bg-purple-300'>
-      <h1 className="font-bold text-lg">BOOK STORE</h1>
+    <nav className='px-6 py-4 flex justify-between items-center bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md'>
+      <h1 className="font-bold text-xl text-white tracking-wide">
+        BOOK STORE
+      </h1>
 
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-6 items-center">
 
         {user ? (
           <>
             <Link
-              className="text-gray-700 font-semibold hover:text-blue-600"
+              className="text-white font-medium hover:text-gray-200 transition"
               to="/"
             >
               Home
             </Link>
- <Link
-              className="hover:text-gray-200"
-              to="/addbook"
-            >
-              Add Book
-            </Link>
+
+            <Link
+  className="text-white font-medium hover:text-gray-200 transition"
+  to="/addbook"
+>
+  Add Book
+</Link>
+
+<Link
+  className="text-white font-medium hover:text-gray-200 transition"
+  to="/favourites"
+>
+  Favourites
+</Link>
             <button
               onClick={() => dp(logout())}
-              className="text-red-600 font-semibold"
+              className="bg-red-500 text-white px-4 py-1.5 rounded-lg hover:bg-red-600 transition font-medium"
             >
               Logout
             </button>
@@ -38,14 +48,14 @@ const Navbar = () => {
           <>
             <Link
               to="/login"
-              className="text-green-600 font-semibold"
+              className="text-white font-medium hover:text-gray-200 transition"
             >
               Login
             </Link>
 
             <Link
               to="/register"
-              className="text-blue-600 font-semibold"
+              className="bg-white text-purple-600 px-4 py-1.5 rounded-lg font-medium hover:bg-gray-100 transition"
             >
               Register
             </Link>
@@ -57,4 +67,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;
