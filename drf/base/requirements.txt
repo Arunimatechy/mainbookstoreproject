@@ -1,7 +1,9 @@
-django
+Django
 djangorestframework
 gunicorn
 psycopg2-binary
 django-cors-headers
 djangorestframework-simplejwt
 dj-database-url
+python-dotenv
+whitenoise
